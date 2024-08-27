@@ -9,11 +9,11 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.atfotiad.bbcnews.navigation.ArticleDetailsScreen
 import com.atfotiad.bbcnews.LatestNewsUiState
-import com.atfotiad.bbcnews.ui.screens.NewsScreen
 import com.atfotiad.bbcnews.NewsViewModel
 import com.atfotiad.bbcnews.data.model.Article
+import com.atfotiad.bbcnews.ui.screens.ArticleDetailsScreen
+import com.atfotiad.bbcnews.ui.screens.NewsScreen
 
 @Composable
 fun NewsNavHost(
