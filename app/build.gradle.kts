@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp") // ksp
+    id("kotlin-kapt")
 }
 
 android {
@@ -18,7 +19,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.atfotiad.bbcnews.test.TestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -91,13 +93,20 @@ dependencies {
     implementation(libs.androidx.biometric)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.androidx.credentials)
+    implementation(libs.androidx.runner)
     ksp (libs.ksp)
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
     testImplementation(libs.junit)
+    testImplementation(libs.hilt.android.testing)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation (libs.hilt.android.testing)
+
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    kaptAndroidTest(libs.hilt.compiler)
+    kaptTest (libs.hilt.compiler)
 }
