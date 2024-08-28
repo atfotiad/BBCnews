@@ -2,6 +2,7 @@ package com.atfotiad.bbcnews.di
 
 import com.atfotiad.bbcnews.BuildConfig
 import com.atfotiad.bbcnews.api.NewsClient
+import com.atfotiad.bbcnews.data.NewsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -54,4 +55,8 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideClient(retrofit: Retrofit): NewsClient = retrofit.create(NewsClient::class.java)
+
+    @Provides
+    @Singleton
+    fun provideRepository(newsClient: NewsClient): NewsRepository = NewsRepository(newsClient)
 }
