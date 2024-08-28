@@ -36,7 +36,7 @@ fun NewsScreen(
     onArticleClick: (Article) -> Unit = {}
 ) {
 
-    Scaffold(topBar = { MyToolbar(sourceTitle = BuildConfig.SOURCES.uppercase(Locale.ROOT)) }) { paddingValues ->
+    Scaffold(topBar = { MyToolbar(sourceTitle = BuildConfig.SOURCES.replace("-", " ").uppercase(Locale.ROOT)) }) { paddingValues ->
 
         var isAuthenticated by rememberSaveable {
             mutableStateOf(false)
