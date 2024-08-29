@@ -94,6 +94,7 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.runner)
+    implementation(libs.androidx.navigation.testing)
     ksp (libs.ksp)
     kapt(libs.hilt.compiler)
     testImplementation(libs.junit)
