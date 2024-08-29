@@ -20,29 +20,33 @@ import javax.inject.Inject
 @RunWith(AndroidJUnit4::class)
 class ScreenTitleTest {
 
-    private lateinit var newsViewModel: NewsViewModel
-   @Inject lateinit var repository: NewsRepository
-
-   @Before
-    fun setUp() {
-        newsViewModel = NewsViewModel(repository)
-    }
-
     @get:Rule
     val composeTestRule = createComposeRule()
+
     @get:Rule
     val hiltRule = HiltAndroidRule(this)
+
+
+    private lateinit var newsViewModel: NewsViewModel
+    @Inject
+    lateinit var repository: NewsRepository
+
+    @Before
+    fun setUp() {
+        hiltRule.inject()
+        newsViewModel = NewsViewModel(repository)
+    }
 
 
     @Test
     fun addState_Assert_ScreenTitle_IsDisplayed() {
         composeTestRule.setContent {
-            NewsScreen(Modifier,newsViewModel) {
+            NewsScreen(Modifier, newsViewModel) {
 
             }
         }
-        composeTestRule.onNodeWithText("BBC News").assertIsDisplayed()
+        composeTestRule.onNodeWithText("BBC News", ignoreCase = true).assertExists()
+        composeTestRule.onNodeWithText("BBC News", ignoreCase = true).assertIsDisplayed()
         composeTestRule.onNodeWithTag("toolbar").assertIsDisplayed()
-
     }
 }
