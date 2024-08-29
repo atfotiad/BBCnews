@@ -1,9 +1,9 @@
-package com.atfotiad.bbcnews.test
+package com.atfotiad.bbcnews
 
 import android.app.Application
 import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
-import com.atfotiad.bbcnews.NewsApplication
+import dagger.hilt.android.testing.HiltTestApplication
 
 class TestRunner : AndroidJUnitRunner() {
     override fun newApplication(
@@ -11,6 +11,6 @@ class TestRunner : AndroidJUnitRunner() {
         className: String?,
         context: Context?
     ): Application {
-        return super.newApplication(cl, NewsApplication::class.java.name, context)
+        return super.newApplication(cl, HiltTestApplication::class.java.name, context)
     }
 }

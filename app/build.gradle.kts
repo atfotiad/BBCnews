@@ -20,7 +20,7 @@ android {
         versionName = "1.0"
 
         //testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner = "com.atfotiad.bbcnews.test.TestRunner"
+        testInstrumentationRunner = "com.atfotiad.bbcnews.TestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
